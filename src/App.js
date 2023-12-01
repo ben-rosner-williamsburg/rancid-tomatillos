@@ -9,9 +9,6 @@ function App() {
 
   return (
     <main class="main-container">
-      <header class="header-container">
-        <h1 class="header">Rancid Tomatillos</h1>
-      </header>
       <Movies title={movieData.title} poster={movieData["poster_path"]} averageRating={movieData["average_rating"]} /> 
     </main>
   )
