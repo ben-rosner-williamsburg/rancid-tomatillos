@@ -8,7 +8,9 @@
 }
 
 p {
-  font-size: 18px;
-  margin: -10px;
+  font-size: 24px;
+  margin: -15px;
+  color: rgb(103, 37, 37);
+  font-weight: bold;
 }
 

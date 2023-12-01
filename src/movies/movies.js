@@ -6,7 +6,7 @@ function Movies({movieData}) {
   return (
    <Card title={movie.title} 
    poster={movie.poster_path} 
-   averageRating={movie.averageRating} 
+   averageRating={Math.round(movie.average_rating)} 
    id={movie.id} 
    key={movie.id}/>
  )
