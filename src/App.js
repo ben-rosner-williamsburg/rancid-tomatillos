@@ -9,7 +9,7 @@ function App() {
 
   return (
     <main class="main-container">
-      <Movies title={movieData.title} poster={movieData["poster_path"]} averageRating={movieData["average_rating"]} /> 
+      <Movies movieData={movieData} /> 
     </main>
   )
 }

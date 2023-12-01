@@ -1,11 +1,14 @@
 import './movies.css'
 import Card from "../cards/cards"
-import movieData from "../data"
 
-function Movies({title, poster, averageRating}) {
+function Movies({movieData}) {
   const movieCards = movieData.movies.map(movie => {
   return (
-   <Card title={movie.title} poster={movie["poster_path"]} averageRating={movie["average_rating"]}/>
+   <Card title={movie.title} 
+   poster={movie.poster_path} 
+   averageRating={movie.averageRating} 
+   id={movie.id} 
+   key={movie.id}/>
  )
   })
   return (
