@@ -1,6 +1,6 @@
 import './App.css';
-import movieData from "./data";
-import Movies from './movies/movies';
+import movieData from "../data";
+import Movies from '../movies/movies';
 import { useState, useEffect} from "react"
 
 
