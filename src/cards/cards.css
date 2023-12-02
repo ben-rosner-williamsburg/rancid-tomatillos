@@ -8,6 +8,10 @@
   background-color: aliceblue;
 }
 
+.card:hover {
+  background-color: coral;
+}
+
 p {
   font-size: 24px;
   margin: -15px;
