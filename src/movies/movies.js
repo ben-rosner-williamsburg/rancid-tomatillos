@@ -12,7 +12,7 @@ function Movies({movieData}) {
  )
   })
   return (
-    <section class="card-container">
+    <section className="card-container">
       {movieCards}
     </section>
   )
