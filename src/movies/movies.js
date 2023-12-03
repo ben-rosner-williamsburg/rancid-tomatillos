@@ -1,8 +1,9 @@
 import './movies.css'
 import Card from "../cards/cards"
 
-function Movies({movieData, setMovieClicked, handleClick}) {
-  const movieCards = movieData.movies.map(movie => {
+function Movies({movieData, handleClick}) {
+  console.log(movieData)
+  const movieCards = movieData.map(movie => {
   return (
    <Card 
    style={{ "--background-color": "coral" }}
@@ -13,7 +14,6 @@ function Movies({movieData, setMovieClicked, handleClick}) {
    id={movie.id} 
    key={movie.id}
    className="card-hover"
-   setMovieClicked={setMovieClicked}
    handleClick={handleClick}
    releaseDate={movie.releaseDate}
    />
@@ -26,4 +26,4 @@ function Movies({movieData, setMovieClicked, handleClick}) {
   )
 }
 
-export default Movies
+export default Movies;
