@@ -11,3 +11,8 @@ function Header({home, movieClicked}) {
 }
 
 export default Header;
+
+Header.propTypes = {
+  home: PropTypes.func.isRequired,
+  movieClicked: PropTypes.bool.isRequired,
+};
