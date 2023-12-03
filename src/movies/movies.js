@@ -1,5 +1,7 @@
-import './movies.css'
-import Card from "../cards/cards"
+import './Movies.css'
+import Card from "../Cards/Cards"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 function Movies({movieData, handleClick, error}) {
   console.log(error)
@@ -27,3 +29,17 @@ function Movies({movieData, handleClick, error}) {
 }
 
 export default Movies;
+
+Movies.propTypes = {
+  movieData: PropTypes.arrayOf(
+    PropTypes.shape({
+      backdrop_path: PropTypes.string,
+      title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      average_rating: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+      releaseDate: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  handleClick: PropTypes.func.isRequired,
+};

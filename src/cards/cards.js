@@ -1,4 +1,7 @@
-import './cards.css'
+import React from 'react'
+import PropTypes from 'prop-types'
+import './Cards.css'
+
 
 function Card({title, poster, averageRating, id, handleClick}) {
   return (
@@ -11,3 +14,10 @@ function Card({title, poster, averageRating, id, handleClick}) {
 }
 
 export default Card;
+
+Card.propTypes = {
+  title: PropTypes.string,
+  poster: PropTypes.string,
+  id: PropTypes.number,
+  handleClick: PropTypes.func
+}
