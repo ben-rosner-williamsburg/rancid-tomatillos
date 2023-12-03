@@ -18,6 +18,10 @@ function detailPage({movieData}) {
 export default detailPage;
 
 detailPage.propTypes = {
-  movieData: movieData.PropTypes.object,
-  movieDa
-}
+  movieData: PropTypes.shape({
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+    release_date: PropTypes.string.isRequired,
+  }).isRequired,
+};
