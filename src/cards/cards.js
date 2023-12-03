@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './cards.css'
+import './Cards.css'
 
 
 function Card({title, poster, averageRating, id, handleClick}) {

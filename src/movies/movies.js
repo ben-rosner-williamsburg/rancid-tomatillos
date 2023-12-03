@@ -1,5 +1,7 @@
-import './movies.css'
+import './Movies.css'
 import Card from "../Cards/Cards"
+import React from 'react'
+import PropTypes from 'prop-types'
 
 function Movies({movieData, handleClick}) {
   console.log(movieData)

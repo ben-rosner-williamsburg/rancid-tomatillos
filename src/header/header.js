@@ -1,4 +1,5 @@
 import './Header.css'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 function Header({home, movieClicked}) {
@@ -13,7 +14,7 @@ function Header({home, movieClicked}) {
 
 export default Header;
 
-Header.PropTypes = {
+Header.propTypes = {
   home: PropTypes.func.isRequired,
   movieClicked: PropTypes.bool.isRequired,
 };
