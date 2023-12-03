@@ -4,7 +4,7 @@ function Header({home, movieClicked}) {
 
   return (
     <header className="header-container">
-      {movieClicked ? <button className='back-btn' onClick={() => home()}>🔙</button> : <p>Nothing to see here</p>}
+      {movieClicked ? <div className='btn-container'><button className='back-btn' onClick={() => home()}>🔙</button></div> : <div className='btn-container'></div>}
       <h1 className='heading-text'>Rancid Tomatillos</h1>
     </header>
   )
