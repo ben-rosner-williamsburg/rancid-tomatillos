@@ -1,5 +1,6 @@
 import './detailPage.css'
-
+import React from 'react'
+import PropTypes from 'prop-types'
 
 function detailPage({movieData}) {
   return(
@@ -15,3 +16,8 @@ function detailPage({movieData}) {
 }
 
 export default detailPage;
+
+detailPage.propTypes = {
+  movieData: movieData.PropTypes.object,
+  movieDa
+}
