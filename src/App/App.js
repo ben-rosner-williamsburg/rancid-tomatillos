@@ -9,21 +9,20 @@ function App() {
   const [movieClicked, setMovieClicked] = useState(false)
   const [singleMovie, setSingleMovie] = useState([])
   const handleClick = (id) => {
-    findMovie(id)
-    setMovieClicked(true)
+    findMovie(id);
+    setMovieClicked(true);
   }
-
-  function findMovie(id) {
+  const home = () => {
+    setMovieClicked(false);
+    setSingleMovie([])
+  }
+  const findMovie = (id) => {
     const movieSelected = movieData.movies.find(movie => movie.id === id)
-    console.log(movieSelected)
     setSingleMovie(movieSelected)
   }
-  // const home = () => {
-  //   setMovieClicked(false)
-  // }
   return (
     <main className="main-container">
-      <Header />
+      <Header home={home} movieClicked={movieClicked} />
       {movieClicked ? <DetailPage movieData={singleMovie}/> : <Movies movieData={movieData} handleClick={handleClick}/>}
     </main>
   )
