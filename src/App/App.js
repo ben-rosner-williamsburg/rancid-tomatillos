@@ -14,7 +14,7 @@ function App() {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(response => response.json())
     .then(data => setMovieData(data.movies))
-    .catch(error => setError(error.message))
+    .catch(error => setError(error))
   }
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function App() {
   return (
     <main className="main-container">
       <Header home={home} movieClicked={movieClicked} />
-      {movieClicked ? <DetailPage movieData={singleMovie}/> : <Movies movieData={movieData} handleClick={handleClick}/>}
+      {movieClicked ? <DetailPage movieData={singleMovie}/> : <Movies movieData={movieData} error={error} handleClick={handleClick}/>}
     </main>
   )
 }
