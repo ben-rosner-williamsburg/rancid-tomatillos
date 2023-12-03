@@ -27,3 +27,17 @@ function Movies({movieData, handleClick}) {
 }
 
 export default Movies;
+
+Movies.propTypes = {
+  movieData: PropTypes.arrayOf(
+    PropTypes.shape({
+      backdrop_path: PropTypes.string,
+      title: PropTypes.string.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      average_rating: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
+      releaseDate: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
