@@ -11,7 +11,6 @@ function App() {
   const handleClick = (id) => {
     findMovie(id)
     setMovieClicked(true)
-    console.log("clicked")
   }
 
   function findMovie(id) {
@@ -26,7 +25,6 @@ function App() {
     <main className="main-container">
       <Header />
       {movieClicked ? <DetailPage movieData={singleMovie}/> : <Movies movieData={movieData} handleClick={handleClick}/>}
-      {/* <Movies movieData={movieData} setMovieClicked={setMovieClicked} handleClick={handleClick}/> */}
     </main>
   )
 }
