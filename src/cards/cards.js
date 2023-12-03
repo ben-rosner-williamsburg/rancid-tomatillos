@@ -1,6 +1,6 @@
 import './cards.css'
 
-function Card({ title, poster, averageRating, id, handleClick}) {
+function Card({title, poster, averageRating, id, handleClick}) {
   return (
     <section className="card" id={id} onClick={() => handleClick(id)}>
       <img src={poster} alt="A film poster" width="300px" height="400px" />

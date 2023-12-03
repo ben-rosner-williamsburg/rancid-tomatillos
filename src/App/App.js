@@ -1,25 +1,40 @@
 import './App.css';
-import movieData from "../data";
 import Movies from '../movies/movies';
 import Header from '../header/header';
 import DetailPage from '../detailPage/detailPage';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [movieClicked, setMovieClicked] = useState(false)
-  const [singleMovie, setSingleMovie] = useState([])
+  const [movieClicked, setMovieClicked] = useState(false);
+  const [singleMovie, setSingleMovie] = useState([]);
+  const [movieData, setMovieData] = useState([]);
+  const [error, setError] = useState("");
+
+  const getMovies = () => {
+    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    .then(response => response.json())
+    .then(data => setMovieData(data.movies))
+    .catch(error => setError(error.message))
+  }
+
+  useEffect(() => {
+    getMovies()
+  }, []);
+
+
   const handleClick = (id) => {
     findMovie(id);
     setMovieClicked(true);
   }
   const home = () => {
     setMovieClicked(false);
-    setSingleMovie([])
+    setSingleMovie([]);
   }
   const findMovie = (id) => {
-    const movieSelected = movieData.movies.find(movie => movie.id === id)
-    setSingleMovie(movieSelected)
+    const movieSelected = movieData.find(movie => movie.id === id);
+    setSingleMovie(movieSelected);
   }
+
   return (
     <main className="main-container">
       <Header home={home} movieClicked={movieClicked} />
