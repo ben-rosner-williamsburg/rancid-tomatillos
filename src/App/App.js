@@ -1,7 +1,7 @@
 import './App.css';
-import Movies from '../movies/movies';
-import Header from '../header/header';
-import DetailPage from '../detailPage/detailPage';
+import Movies from '../Movies/Movies';
+import Header from '../Header/Header';
+import DetailPage from '../DetailPage/DetailPage';
 import { useState, useEffect } from "react";
 
 function App() {

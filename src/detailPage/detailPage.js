@@ -1,8 +1,8 @@
-import './detailPage.css'
+import './DetailPage.css'
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function detailPage({movieData}) {
+function DetailPage({movieData}) {
   return(
     <section className="movie-detail-container">
       <img src={movieData.poster_path} alt="A film poster" width="300px" height="400px" className='movie-poster movie-element'/>
@@ -15,9 +15,9 @@ function detailPage({movieData}) {
   )
 }
 
-export default detailPage;
+export default DetailPage;
 
-detailPage.propTypes = {
+DetailPage.propTypes = {
   movieData: PropTypes.shape({
     poster_path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

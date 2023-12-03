@@ -1,5 +1,5 @@
 import './movies.css'
-import Card from "../cards/cards"
+import Card from "../Cards/Cards"
 
 function Movies({movieData, handleClick}) {
   console.log(movieData)
