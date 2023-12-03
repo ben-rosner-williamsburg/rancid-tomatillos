@@ -1,8 +1,8 @@
 import './movies.css'
 import Card from "../cards/cards"
 
-function Movies({movieData, handleClick}) {
-  console.log(movieData)
+function Movies({movieData, handleClick, error}) {
+  console.log(error)
   const movieCards = movieData.map(movie => {
   return (
    <Card 
@@ -20,8 +20,8 @@ function Movies({movieData, handleClick}) {
  )
   })
   return (
-    <section className="card-container">
-      {movieCards}
+    <section>
+      {!error ? <div className='card-container'>{movieCards}</div> : <h1>500 Error! Try again later!</h1>}
     </section>
   )
 }
