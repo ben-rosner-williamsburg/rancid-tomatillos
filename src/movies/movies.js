@@ -1,5 +1,5 @@
 import './Movies.css'
-import Card from "../Cards/Cards"
+import Card from "../Cards/Cards.js"
 import React from 'react'
 import PropTypes from 'prop-types'
 
