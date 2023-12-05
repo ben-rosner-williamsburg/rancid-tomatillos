@@ -1,8 +1,9 @@
 import './App.css';
-import Movies from '../Movies/Movies';
-import Header from '../Header/Header';
+import Movies from '../Movies/Movies.js';
+import Header from '../Header/Header.js';
 import DetailPage from '../DetailPage/DetailPage';
 import { useState, useEffect } from "react";
+import {getMovies} from "../apiCalls/apiCalls.js";
 
 function App() {
   const [movieClicked, setMovieClicked] = useState(false);
@@ -10,15 +11,18 @@ function App() {
   const [movieData, setMovieData] = useState([]);
   const [error, setError] = useState("");
 
-  const getMovies = () => {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(response => response.json())
-    .then(data => setMovieData(data.movies))
-    .catch(error => setError(error))
+  const fetchData = () => {
+    getMovies()
+    .then((data) => {
+      setMovieData(data.movies)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }
 
   useEffect(() => {
-    getMovies()
+    fetchData()
   }, []);
 
 
