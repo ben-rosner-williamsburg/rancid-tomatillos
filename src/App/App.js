@@ -1,15 +1,21 @@
 import './App.css';
 import Movies from '../Movies/Movies.js';
 import Header from '../Header/Header.js';
-import DetailPage from '../DetailPage/DetailPage';
+import DetailPage from '../DetailPage/DetailPage.js';
 import { useState, useEffect } from "react";
-import {getMovies} from "../apiCalls/apiCalls.js";
+import {getMovies, getSingleMovie} from "../apiCalls/apiCalls.js";
+import {Routes, Route } from  "react-router-dom";
+
 
 function App() {
   const [movieClicked, setMovieClicked] = useState(false);
-  const [singleMovie, setSingleMovie] = useState([]);
+  const [singleMovie, setSingleMovie] = useState({});
   const [movieData, setMovieData] = useState([]);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const fetchData = () => {
     getMovies()
@@ -17,22 +23,28 @@ function App() {
       setMovieData(data.movies)
     })
     .catch((error) => {
-      console.log(error)
+      setError(error.message)
     })
   }
 
-  useEffect(() => {
-    fetchData()
-  }, []);
-
+  const fetchSingleMovie = (id) => {
+    getSingleMovie(id)
+    .then((data) => {
+      setSingleMovie(data.movie)
+    })
+    .catch((error) => {
+      setError(error.message)
+    })
+  }
 
   const handleClick = (id) => {
+    fetchSingleMovie(id);
     findMovie(id);
     setMovieClicked(true);
   }
   const home = () => {
     setMovieClicked(false);
-    setSingleMovie([]);
+    setSingleMovie({});
   }
   const findMovie = (id) => {
     const movieSelected = movieData.find(movie => movie.id === id);
@@ -40,9 +52,14 @@ function App() {
   }
 
   return (
+
     <main className="main-container">
       <Header home={home} movieClicked={movieClicked} />
-      {movieClicked ? <DetailPage movieData={singleMovie}/> : <Movies movieData={movieData} error={error} handleClick={handleClick}/>}
+      <Routes>
+       <Route path="/"/>
+      {movieClicked && <Route path="/:id" element = {<DetailPage movieData={singleMovie} />} />}
+      </Routes>
+      {!movieClicked && <Movies movieData={movieData}  handleClick={handleClick} error={error}/>}
     </main>
   )
 }

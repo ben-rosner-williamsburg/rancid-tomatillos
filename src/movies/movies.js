@@ -4,7 +4,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Movies({movieData, handleClick, error}) {
-  console.log(error)
   const movieCards = movieData.map(movie => {
   return (
    <Card 
@@ -17,7 +16,7 @@ function Movies({movieData, handleClick, error}) {
    key={movie.id}
    className="card-hover"
    handleClick={handleClick}
-   releaseDate={movie.releaseDate}
+   releaseDate={movie.release_date}
    />
  )
   })
@@ -38,7 +37,7 @@ Movies.propTypes = {
       poster_path: PropTypes.string.isRequired,
       average_rating: PropTypes.number.isRequired,
       id: PropTypes.number.isRequired,
-      releaseDate: PropTypes.string.isRequired,
+      release_date: PropTypes.string.isRequired,
     })
   ).isRequired,
   handleClick: PropTypes.func.isRequired,
