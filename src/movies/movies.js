@@ -3,7 +3,6 @@ import Card from "../Cards/Cards.js"
 import React from 'react'
 import PropTypes from 'prop-types'
 
-
 function Movies({movieData, handleClick, error}) {
   console.log(error)
   const movieCards = movieData.map(movie => {

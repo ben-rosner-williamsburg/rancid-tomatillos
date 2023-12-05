@@ -11,11 +11,9 @@ function App() {
   const [movieData, setMovieData] = useState([]);
   const [error, setError] = useState("");
 
-  
   const fetchData = () => {
     getMovies()
     .then((data) => {
-      console.log("DATA", data.movies)
       setMovieData(data.movies)
     })
     .catch((error) => {
