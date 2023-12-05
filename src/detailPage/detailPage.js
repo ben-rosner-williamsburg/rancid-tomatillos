@@ -1,10 +1,14 @@
 import './DetailPage.css'
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
+
 
 function DetailPage({movieData}) {
+  const id = useParams().id
+  console.log(movieData, id)
   return(
-    <section className="movie-detail-container">
+    <section className="movie-detail-container" id={movieData.id}>
       <img src={movieData.poster_path} alt="A film poster" width="300px" height="400px" className='movie-poster movie-element'/>
       <aside>
         <h3 className='movie-title movie-element'>Title: {movieData.title}</h3>
