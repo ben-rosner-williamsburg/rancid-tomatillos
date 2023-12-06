@@ -1,9 +1,29 @@
 describe('Rancid Tomatillos see movie info flow', () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies", {
+      statusCode: 200,
+      fixture: "testData"
+    })
+    .visit("http://localhost:3000/")
   });
-  it('should be able to visit page', () => {
-    cy.contains('Rancid Tomatillos')
-    .get('h1')
-  })
-})
+    it("should be able to visit page", () => {
+      cy.contains("Rancid Tomatillos").get("h1");
+    });
+    it("should be able to render movies", () => {
+      cy.get("section")
+      .contains('Black Adam')
+      .contains('4.0')
+      .get("img[src='https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg']")
+
+      cy.get("section")
+        .contains("The Woman King")
+        .contains("4.0")
+        .get(
+          "img[src='https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg']"
+        );
+    });
+  });
+  
+
+
+
