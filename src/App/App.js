@@ -56,10 +56,9 @@ function App() {
     <main className="main-container">
       <Header home={home} movieClicked={movieClicked} />
       <Routes>
-       <Route path="/"/>
+       <Route path="/" element={<Movies movieData={movieData}  handleClick={handleClick} error={error}/>}></Route>
       {movieClicked && <Route path="/:id" element = {<DetailPage movieData={singleMovie} />} />}
       </Routes>
-      {!movieClicked && <Movies movieData={movieData}  handleClick={handleClick} error={error}/>}
     </main>
   )
 }
