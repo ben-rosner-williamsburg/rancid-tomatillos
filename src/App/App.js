@@ -5,7 +5,6 @@ import DetailPage from '../DetailPage/DetailPage.js';
 import { useState, useEffect } from "react";
 import { getMovies, getSingleMovie } from "../apiCalls/apiCalls.js";
 import { Routes, Route } from "react-router-dom";
-import PropTypes from "prop-types";
 
 
 function App() {
@@ -57,7 +56,7 @@ console.log("Movie Data 1", movieData)
       <Header movieClicked={movieClicked} home={home} />
       <Routes>
         <Route path="/" element={<Movies movieData={movieData} handleClick={handleClick} error={error} />} />
-        <Route path="/:id" element={<DetailPage movieClicked={movieClicked} home={home} movieData={singleMovie} />} />
+        <Route path="/:id" element={<DetailPage movieClicked={movieClicked} home={home} singleMovie={singleMovie} />} />
       </Routes>
     </main>
   )
