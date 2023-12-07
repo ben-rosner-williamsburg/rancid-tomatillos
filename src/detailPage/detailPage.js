@@ -1,11 +1,21 @@
 import './DetailPage.css'
 import React from 'react'
 import PropTypes from 'prop-types'
+import BackBtn from '../BackBtn/BackBtn'
+import { useNavigate } from 'react-router-dom'
 
 
-function DetailPage({movieData}) {
+function DetailPage({movieData, home}) {
+  const navigate = useNavigate()
+  const handleHomeClick = () => {
+    navigate("/")
+    home()
+  }
   return(
     <section className="movie-detail-container" id={movieData.id}>
+    <aside className='btn-container'>
+    <BackBtn className="back-btn" home={home}handleHomeClick={handleHomeClick}/>
+    </aside>
       <img src={movieData.poster_path} alt="A film poster" width="300px" height="400px" className='movie-poster movie-element'/>
       <aside>
         <h3 className='movie-title movie-element'>Title: {movieData.title}</h3>

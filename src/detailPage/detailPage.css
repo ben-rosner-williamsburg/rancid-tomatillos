@@ -26,3 +26,20 @@
   height: 70vh;
 }
 
+
+.btn-container {
+  align-items: flex-start;
+  width: 10vw;
+  height: 5vh;
+}
+
+.back-btn {
+  text-align: center;
+  margin: 20px 0 0 -80px;
+  font-size: 72px;
+  border: none;
+}
+
+.back-btn:hover {
+  background-color: darkgray;
+}
