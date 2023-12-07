@@ -11,6 +11,8 @@ function DetailPage({movieData, home}) {
     navigate("/")
     home()
   }
+
+  console.log("MOVIE DATA", movieData)
   return(
     <section className="movie-detail-container" id={movieData.id}>
     <aside className='btn-container'>
@@ -26,13 +28,15 @@ function DetailPage({movieData, home}) {
   )
 }
 
-export default DetailPage;
+
 
 DetailPage.propTypes = {
   movieData: PropTypes.shape({
-    poster_path: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    average_rating: PropTypes.number.isRequired,
-    release_date: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
+    title: PropTypes.string,
+    average_rating: PropTypes.number,
+    release_date: PropTypes.string,
   }).isRequired,
 };
+
+export default DetailPage;

@@ -5,6 +5,7 @@ import DetailPage from '../DetailPage/DetailPage.js';
 import { useState, useEffect } from "react";
 import { getMovies, getSingleMovie } from "../apiCalls/apiCalls.js";
 import { Routes, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
     const movieSelected = movieData.find(movie => movie.id === id);
     setSingleMovie(movieSelected);
   }
-
+console.log("Movie Data 1", movieData)
   return (
     <main className="main-container">
       <Header movieClicked={movieClicked} home={home} />
@@ -61,5 +62,29 @@ function App() {
     </main>
   )
 }
+
+
+
+// App.propTypes = {
+//   movieData: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//       poster_path: PropTypes.string.isRequired,
+//       title: PropTypes.string.isRequired,
+//       average_rating: PropTypes.number.isRequired,
+//       release_date: PropTypes.string.isRequired,
+//     })
+//   ).isRequired,
+// };
+
+// DetailPage.propTypes = {
+//   movieData: PropTypes.shape({
+//     id: PropTypes.number.isRequired,
+//     poster_path: PropTypes.string.isRequired,
+//     title: PropTypes.string.isRequired,
+//     average_rating: PropTypes.number.isRequired,
+//     release_date: PropTypes.string.isRequired,
+//   }).isRequired,
+// };
 
 export default App;
