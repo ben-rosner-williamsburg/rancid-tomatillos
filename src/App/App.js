@@ -3,8 +3,8 @@ import Movies from '../Movies/Movies.js';
 import Header from '../Header/Header.js';
 import DetailPage from '../DetailPage/DetailPage.js';
 import { useState, useEffect } from "react";
-import {getMovies, getSingleMovie} from "../apiCalls/apiCalls.js";
-import {Routes, Route } from  "react-router-dom";
+import { getMovies, getSingleMovie } from "../apiCalls/apiCalls.js";
+import { Routes, Route } from "react-router-dom";
 
 
 function App() {
@@ -19,22 +19,22 @@ function App() {
 
   const fetchData = () => {
     getMovies()
-    .then((data) => {
-      setMovieData(data.movies)
-    })
-    .catch((error) => {
-      setError(error.message)
-    })
+      .then((data) => {
+        setMovieData(data.movies)
+      })
+      .catch((error) => {
+        setError(error.message)
+      })
   }
 
   const fetchSingleMovie = (id) => {
     getSingleMovie(id)
-    .then((data) => {
-      setSingleMovie(data.movie)
-    })
-    .catch((error) => {
-      setError(error.message)
-    })
+      .then((data) => {
+        setSingleMovie(data.movie)
+      })
+      .catch((error) => {
+        setError(error.message)
+      })
   }
 
   const handleClick = (id) => {
@@ -52,14 +52,12 @@ function App() {
   }
 
   return (
-
     <main className="main-container">
-      <Header home={home} movieClicked={movieClicked} />
+      <Header movieClicked={movieClicked} home={home} />
       <Routes>
-       <Route path="/"/>
-      {movieClicked && <Route path="/:id" element = {<DetailPage movieData={singleMovie} />} />}
+        <Route path="/" element={<Movies movieData={movieData} handleClick={handleClick} error={error} />} />
+        <Route path="/:id" element={<DetailPage movieData={singleMovie} />} />
       </Routes>
-      {!movieClicked && <Movies movieData={movieData}  handleClick={handleClick} error={error}/>}
     </main>
   )
 }
