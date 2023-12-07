@@ -1,14 +1,19 @@
 import './Header.css'
-import React from 'react'
 import PropTypes from 'prop-types'
-import {Link, useNavigate} from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
+import BackBtn from "../BackBtn/BackBtn.js" 
 
 function Header({home, movieClicked}) {
-  const navigate = useNavigate();
-  
+  const navigate = useNavigate()
+  const handleHomeClick = () => {
+    navigate("/")
+    home()
+  }
   return (
     <header className="header-container">
-      {movieClicked ? <div className='btn-container'><Link to="/"><button className='back-btn' onClick={() => navigate(-1)}>🔙</button></Link></div> : <div className='btn-container'></div>}
+       <div className='btn-container'>
+       { movieClicked? <BackBtn home={home}handleHomeClick={handleHomeClick}/> : <></>}
+      </div>
       <h1 className='heading-text'>Rancid Tomatillos</h1>
     </header>
   )
