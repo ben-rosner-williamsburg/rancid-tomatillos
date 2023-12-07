@@ -23,18 +23,21 @@ describe('Rancid Tomatillos see movie info flow', () => {
         );
     });
     it("should be able to display the info a particular movie when clicked", () => {
-      cy.visit("http://localhost:3000/436270")
+      cy.intercept("GET", "http://localhost:3000/436270", {
+        statusCode: 200,
+        fixture: "testData",
+      });
       cy.get("section").contains("Black Adam").click();
       cy.get(
         "img[src='https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg']"
       );
-      cy.get("h3").contains("Title: Black Adam")
-      cy.get("p").contains("Average Rating: 4.0")
-      cy.get("p").contains("Release Date: 2022-10-19")
-
-      // .contains('')
+          cy.get("h3").contains("Title: Black Adam")
+          cy.get("p").contains("Average Rating: 4.0")
+          cy.get("p").contains("Release Date: 2022-10-19")
     })
   });
+
+  
   
 
 
