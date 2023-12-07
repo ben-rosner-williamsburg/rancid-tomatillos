@@ -35,6 +35,22 @@ describe('Rancid Tomatillos see movie info flow', () => {
           cy.get("p").contains("Average Rating: 4.0")
           cy.get("p").contains("Release Date: 2022-10-19")
     })
+    it("should be able to go back to the home page", () => {
+      cy.go('back');
+      cy.visit("http://localhost:3000");
+      cy.get("section")
+        .contains("Black Adam")
+        .contains("4.0")
+        .get(
+          "img[src='https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg']"
+        );
+      cy.get("section")
+        .contains("The Woman King")
+        .contains("4.0")
+        .get(
+          "img[src='https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg']"
+        );
+    })
   });
 
   
