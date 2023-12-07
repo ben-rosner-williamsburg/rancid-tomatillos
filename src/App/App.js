@@ -56,7 +56,7 @@ function App() {
       <Header movieClicked={movieClicked} home={home} />
       <Routes>
         <Route path="/" element={<Movies movieData={movieData} handleClick={handleClick} error={error} />} />
-        <Route path="/:id" element={<DetailPage movieData={singleMovie} />} />
+        <Route path="/:id" element={<DetailPage movieClicked={movieClicked} home={home} movieData={singleMovie} />} />
       </Routes>
     </main>
   )
