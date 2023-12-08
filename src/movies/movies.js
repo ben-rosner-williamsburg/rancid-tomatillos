@@ -1,5 +1,5 @@
 import './Movies.css'
-import Card from "../Cards/Cards.js"
+import Card from "../Cards/Cards"
 import React from 'react'
 import PropTypes from 'prop-types'
 
@@ -7,8 +7,6 @@ function Movies({movieData, handleClick, error}) {
   const movieCards = movieData.map(movie => {
   return (
    <Card 
-   style={{ "--background-color": "coral" }}
-   backdrop={movie.backdrop_path}
    title={movie.title} 
    poster={movie.poster_path} 
    averageRating={Math.round(movie.average_rating)} 
