@@ -1,5 +1,4 @@
 import './Header.css'
-import PropTypes from 'prop-types'
 
 
 function Header() {
@@ -11,8 +10,3 @@ function Header() {
 }
 
 export default Header;
-
-Header.propTypes = {
-  home: PropTypes.func.isRequired,
-  movieClicked: PropTypes.bool.isRequired,
-};
