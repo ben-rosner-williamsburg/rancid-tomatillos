@@ -1,0 +1,27 @@
+.btn-container {
+  align-items: flex-start;
+  width: 10vw;
+  height: 5vh;
+}
+
+.home-btn, .home-text {
+  background-color: aliceblue;
+  text-align: center;
+  margin: 20px 0 0 -80px;
+  font-size: 48px;
+  border: none;
+  color: black;
+}
+
+
+.home-text {
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 1000
+}
