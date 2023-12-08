@@ -1,7 +1,7 @@
 import './DetailPage.css'
 import React from 'react'
 import PropTypes from 'prop-types'
-import BackBtn from '../BackBtn/BackBtn'
+import BackBtn from '../HomeBtn/HomeBtn'
 import { useNavigate } from 'react-router-dom'
 
 
