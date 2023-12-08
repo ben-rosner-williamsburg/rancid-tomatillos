@@ -50,7 +50,7 @@ function App() {
     const movieSelected = movieData.find(movie => movie.id === id);
     setSingleMovie(movieSelected);
   }
-console.log("Movie Data 1", movieData)
+  console.log("Movie Data 1", movieData)
   return (
     <main className="main-container">
       <Header movieClicked={movieClicked} home={home} />
