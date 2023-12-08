@@ -6,7 +6,7 @@ import './Cards.css'
 
 function Card({title, poster, averageRating, id, handleClick}) {
   return (
-    <Link className="link"to={`/${id}`}>
+    <Link className="link" to={`/movies/${id}`}>
     <section className="card" id={id} onClick={() => handleClick(id)}>
       <img src={poster} alt="A film poster" width="300px" height="400px" />
       <h3 className="movie-detail movie-title">{title}</h3>
