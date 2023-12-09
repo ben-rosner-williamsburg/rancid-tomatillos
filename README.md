@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Abstract:
 
-## Available Scripts
+This application allows the user to view a list of movies provided by the server along with their rating. When the movie is clicked the user can see more information about that particular movie. The app was designed to be responsive on computer screens mobile devices and tablets
 
-In the project directory, you can run:
+## Application link:
 
-### `npm start`
+[Rancid Tomatillos](https://github.com/ben-rosner-williamsburg/rancid-tomatillos)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Instructions:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Change into the directory you want the app to be in
 
-### `npm test`
+2. Run `git@github.com:ben-rosner-williamsburg/rancid-tomatillos.git`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Run `cd rancid-tomatillos`
 
-### `npm run build`
+4. Run `npm install`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. Run `npm start` and it should automatically open the application in your browser
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Context:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This is a paired project for the front end engineering program at the [Turing School of Software and Design](https://www.linkedin.com/school/turingschool/mycompany/)
 
-### `npm run eject`
+## Contributors:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[Zen McMillan](https://www.linkedin.com/in/zen-mcmillan/) 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Ben Rosner](https://www.linkedin.com/in/benrosner/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Challenges:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Ben - Implementing responsive design and thorougly testing using Cypress was a challenge for me. Also dividing the work equally was a challenge
 
-## Learn More
+Zen - This was my first time working with React so understanding how React works was challenging since it was all so new to me
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Wins 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Ben - Figuring out how to manipulate props and states as well as understanding React and React Router was a win for me. Figuring out how to work through different time zones although not tecnical was also a win for me
 
-### Code Splitting
+Zen - Understanding how to manipulate props and states was a win for me as well as understanding how to conduct end to end testing with Cypress
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
