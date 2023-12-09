@@ -1,7 +1,30 @@
-.card-container {
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+.app-container {
+  display: flex;
+  justify-items: center;
+  margin: -10vh auto;
 }
 
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 5vw;
+  grid-gap: 2vh;
+  justify-items: center;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    margin: 5vh auto;
+    align-items: center;
+    width: 80vw;
+    height: 100%;
+  }
+}

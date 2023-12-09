@@ -51,8 +51,8 @@ function App() {
     <main className="main-container">
       <Header />
       <Routes>
-        <Route index path="/" element={<Movies movieData={movieData} handleClick={handleClick} error={error} />} />
-        <Route path="movies/:id/" element={<DetailPage movieClicked={movieClicked} singleMovie={singleMovie} />} />
+        <Route path="/" element={<Movies movieData={movieData} handleClick={handleClick} error={error} />} />
+        <Route path="movies/:id" element={<DetailPage movieClicked={movieClicked} singleMovie={singleMovie} />} />
         <Route path='*' element={<Error/>}/>
       </Routes>
     </main>

@@ -10,11 +10,11 @@
 .message-container {
   text-align: center;
   align-items: space-around;
-
 }
 .error {
   color: red;
   align-self: center;
+  font-size: 8em;
 }
 
 .btn-container {
@@ -24,3 +24,20 @@
   height: 5vh;
 }
 
+
+@media only screen and (max-width: 768px) {
+  .error-container {
+    align-items: center;
+    height: 100vh;
+  }
+  .message-container{
+    display: flex;
+    height: 40vh;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .error {
+    font-size: 1.5em;
+  }
+}
+  
