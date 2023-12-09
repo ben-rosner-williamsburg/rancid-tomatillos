@@ -19,7 +19,7 @@ function Movies({movieData, handleClick, error}) {
  )
   })
   return (
-    <section>
+    <section class="app-container">
       {!error ? <div className='card-container'>{movieCards}</div> : <h1>500 Error! Try again later!</h1>}
     </section>
   )

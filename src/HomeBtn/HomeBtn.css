@@ -9,13 +9,9 @@
   background-color: aliceblue;
   text-align: center;
   margin: 20px 0 0 -80px;
-  font-size: 48px;
+  font-size: 140px;
   border: none;
   color: black;
-}
-
-.home-text {
-  text-align: center;
 }
 
 .material-symbols-outlined {
@@ -24,4 +20,16 @@
     'wght' 400,
     'GRAD' 0,
     'opsz' 1000
+}
+
+@media only screen and (max-width: 768px) {
+  .btn-container {
+    display: flex;
+    justify-self: flex-start;
+
+  }
+  .home-btn, .home-text {
+    font-size: 10vw;
+    text-align: start;
+  }
 }
