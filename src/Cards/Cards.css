@@ -1,13 +1,9 @@
 .card {
   box-sizing: border-box;
   border: 0.1667em solid black;
-  /* 3px / 18px = 0.1667em */
   padding: 0.5556em;
-  /* 10px / 18px = 0.5556em */
   width: 20vw;
-  /* 450px / 18px = 25em */
-  height: 55vh;
-  /* 540px / 18px = 30em */
+  height: 57vh;
   text-align: center;
   background-color: aliceblue;
 }
@@ -18,9 +14,7 @@
 
 .movie-avg-rating {
   font-size: 1.3333em;
-  /* 24px / 18px = 1.3333em */
   margin: -0.8333em;
-  /* -15px / 18px = -0.8333em */
   color: rgb(103, 37, 37);
   font-weight: bold;
 }
@@ -36,22 +30,22 @@ img {
 }
 
 .movie-detail {
-  font-size: 3.25em;
+  font-size: 1.75em;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48em) {
   .card {
     display: flex;
     flex-direction: column;
-    margin: 8vh;
-    height: 35vh;
-    width: 55vw;
+    margin: 3vh;
+    height: 42vh;
+    width: 80vw;
     align-items: center;
   }
 
   img {
-    width: 50vw;
-    height: 25vh;
+    width: 60vw;
+    height: 35vh;
     margin: 0 auto;
   }
 

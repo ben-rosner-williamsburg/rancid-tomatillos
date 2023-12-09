@@ -1,7 +1,7 @@
 .main-container {
   display: flex;
   flex-direction: column;
-  font-size: 1.125em; /* 18px / 16px = 1.125em */
+  font-size: 1.125em;
   background-color: antiquewhite; 
   overflow-y: scroll;
   overflow-x: hidden;
@@ -12,7 +12,7 @@
   flex-direction: row;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48em) {
   .main-container {
     display: flex;
     flex-direction: column;

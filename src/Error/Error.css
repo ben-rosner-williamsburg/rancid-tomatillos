@@ -14,18 +14,18 @@
 .error {
   color: red;
   align-self: center;
-  font-size: 8em;
+  font-size: 4em;
 }
 
 .btn-container {
   text-align: center;
-  margin: 0 0 0 40px;
+  margin: -1.5em 0 0 2.1em;
   width: 10vw;
   height: 5vh;
 }
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48em) {
   .error-container {
     align-items: center;
     height: 100vh;
