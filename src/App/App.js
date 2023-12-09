@@ -52,7 +52,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Movies movieData={movieData} handleClick={handleClick} error={error} />} />
-        <Route path="movies/:id" element={<DetailPage movieClicked={movieClicked} singleMovie={singleMovie} />} />
+        <Route path="movies/:id/" element={<DetailPage singleMovie={singleMovie} />} />
         <Route path='*' element={<Error/>}/>
       </Routes>
     </main>
