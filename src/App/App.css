@@ -12,19 +12,19 @@
   flex-direction: row;
 }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 576px) {
   .main-container {
     justify-items: center;
   }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 968px) {
   .main-container {
     justify-items: center;
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1200px) {
   .main-container {
     justify-items: center;
   }

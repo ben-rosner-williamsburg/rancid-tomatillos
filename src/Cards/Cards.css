@@ -3,7 +3,7 @@
   border: 0.1667em solid black;
   padding: 0.5556em;
   width: 20vw;
-  height: 57vh;
+  height: 60vh;
   text-align: center;
   background-color: aliceblue;
 }
@@ -30,10 +30,10 @@ img {
 }
 
 .movie-detail {
-  font-size: 1.75em;
+  font-size: 1em;
 }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 576px) {
   .card {
     display: flex;
     flex-direction: column;
@@ -74,7 +74,7 @@ img {
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1200px) {
    .card {
     display: flex;
     flex-direction: column;

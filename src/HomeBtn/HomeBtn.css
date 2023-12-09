@@ -8,8 +8,8 @@
 .home-text {
   background-color: aliceblue;
   text-align: center;
-  margin: 3.5vh 0 0 -4vw;
-  font-size: 80px;
+  margin: 6.5vh 0 0 -4vw;
+  font-size: 40px;
   border: none;
   color: black;
 }
@@ -27,6 +27,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 20vw;
   }
   .home-btn, .home-text {
     font-size: 10vw;

@@ -16,7 +16,7 @@
 
 
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 576px) {
   .header-container {
     display: flex;
     text-align: center;
