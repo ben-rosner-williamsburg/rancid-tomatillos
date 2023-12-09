@@ -8,7 +8,7 @@ function Error() {
         <HomeBtn />
       </div>
       <div className="message-container">
-        <h1 className="error">400 Error: Page Not Found</h1>
+        <h1 className="error">404 Error: Page Not Found</h1>
       </div>
     </section>
   )

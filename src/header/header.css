@@ -2,26 +2,25 @@
   display: flex;
   background-color: antiquewhite;
   flex-direction: column;
-  width: 100%;
-  margin-top: -20px;
+  width: 100vw;
   text-align: center;
 }
 
 
 .heading-text {
   color: darkgreen;
-  font-size: 140px;
+  font-size: 4vw;
   font-family: 'Vina Sans', sans-serif;
   text-align: center;
 }
 
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48em) {
   .header-container {
     display: flex;
     text-align: center;
-    width: 100%;
+    width: 100vw;
   }
   .heading-text{
     font-size: 60px;
