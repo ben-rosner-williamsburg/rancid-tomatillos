@@ -20,6 +20,11 @@ This application allows the user to view a list of movies provided by the server
 
 5. Run `npm start` and it should automatically open the application in your browser
 
+## Preview of App
+
+![Rancid Tomatillos Preview](Rancid-Tomatillos.gif)
+
+
 ## Context:
 
 This is a paired project for the front end engineering program at the [Turing School of Software and Design](https://www.linkedin.com/school/turingschool/mycompany/)
