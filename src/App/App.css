@@ -14,8 +14,18 @@
 
 @media only screen and (max-width: 48em) {
   .main-container {
-    display: flex;
-    flex-direction: column;
+    justify-items: center;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .main-container {
+    justify-items: center;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .main-container {
     justify-items: center;
   }
 }

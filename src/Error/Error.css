@@ -1,6 +1,6 @@
 .error-container{
   width: 100vw;
-  height: 40vh;
+  height: 100vh;
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -28,7 +28,7 @@
 @media only screen and (max-width: 48em) {
   .error-container {
     align-items: center;
-    height: 100vh;
+    margin: 4vh;
   }
   .message-container{
     display: flex;
@@ -40,4 +40,5 @@
     font-size: 1.5em;
   }
 }
+
   
