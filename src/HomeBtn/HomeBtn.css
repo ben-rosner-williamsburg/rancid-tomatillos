@@ -22,7 +22,7 @@
     'opsz' 1000
 }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 768px) {
   .btn-container {
     display: flex;
     align-items: center;
@@ -30,6 +30,32 @@
   }
   .home-btn, .home-text {
     font-size: 10vw;
-    margin: 0 0 -2.5vh -15vw;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+    .btn-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20vw;
+    }
+    .home-btn, .home-text {
+      font-size: 4vw;
+      margin-bottom: -10vh;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20vw;
+  }
+  .home-btn, .home-text {
+    font-size: 4vw;
+    margin-bottom: -10vh;
   }
 }
