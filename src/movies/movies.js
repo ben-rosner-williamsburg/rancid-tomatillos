@@ -3,20 +3,20 @@ import Card from "../Cards/Cards"
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Movies({movieData, handleClick, error}) {
+function Movies({ movieData, handleClick, error }) {
   const movieCards = movieData.map(movie => {
-  return (
-   <Card 
-   title={movie.title} 
-   poster={movie.poster_path} 
-   averageRating={Math.round(movie.average_rating)} 
-   id={movie.id} 
-   key={movie.id}
-   className="card-hover"
-   handleClick={handleClick}
-   releaseDate={movie.release_date}
-   />
- )
+    return (
+      <Card
+        title={movie.title}
+        poster={movie.poster_path}
+        averageRating={Math.round(movie.average_rating)}
+        id={movie.id}
+        key={movie.id}
+        className="card-hover"
+        handleClick={handleClick}
+        releaseDate={movie.release_date}
+      />
+    )
   })
   return (
     <section class="app-container">

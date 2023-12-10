@@ -53,34 +53,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Movies movieData={movieData} handleClick={handleClick} error={error} />} />
         <Route path="movies/:id/" element={<DetailPage singleMovie={singleMovie} />} />
-        <Route path='*' element={<Error/>}/>
+        <Route path='*' element={<Error />} />
       </Routes>
     </main>
   )
 }
 
-
-
-// App.propTypes = {
-//   movieData: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       poster_path: PropTypes.string.isRequired,
-//       title: PropTypes.string.isRequired,
-//       average_rating: PropTypes.number.isRequired,
-//       release_date: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-// };
-
-// DetailPage.propTypes = {
-//   movieData: PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     poster_path: PropTypes.string.isRequired,
-//     title: PropTypes.string.isRequired,
-//     average_rating: PropTypes.number.isRequired,
-//     release_date: PropTypes.string.isRequired,
-//   }).isRequired,
-// };
 
 export default App;
