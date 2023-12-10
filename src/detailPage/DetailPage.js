@@ -3,7 +3,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import HomeBtn from '../HomeBtn/HomeBtn'
 import { useNavigate, useParams } from 'react-router-dom'
-import {App, setSingleMovie} from '../App/App'
 import { getSingleMovie } from '../apiCalls/apiCalls'
 import { useState, useEffect } from 'react'
 
@@ -21,8 +20,8 @@ function DetailPage({ home }) {
     fetchSingleMovie(ID);
   }, []);
 
-console.log("ID", params.id)
 let ID = params.id
+
 const fetchSingleMovie = (ID) => {
   getSingleMovie(ID)
     .then((data) => {
