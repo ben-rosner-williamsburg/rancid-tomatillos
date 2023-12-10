@@ -17,7 +17,7 @@ function DetailPage({ singleMovie, home }) {
       <aside className='btn-container'>
         <HomeBtn className="home-btn" home={home} handleHomeClick={handleHomeClick} />
       </aside>
-      <img src={singleMovie.poster_path} alt="A film poster" width="300px" height="400px" className='movie-poster' />
+      <img src={singleMovie.poster_path} alt="A film poster" width="300px" height="400px" className='movie-poster'  />
       <aside>
         <h3 className='movie-title movie-element'>Title: {singleMovie.title}</h3>
         <p className='movie-rating movie-element'>Average Rating: {singleMovie.average_rating}</p>
