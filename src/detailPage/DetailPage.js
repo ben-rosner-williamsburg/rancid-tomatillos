@@ -3,15 +3,36 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import HomeBtn from '../HomeBtn/HomeBtn'
 import { useNavigate, useParams } from 'react-router-dom'
+import {App, setSingleMovie} from '../App/App'
+import { getSingleMovie } from '../apiCalls/apiCalls'
+import { useState, useEffect } from 'react'
 
-
-function DetailPage({ singleMovie, home }) {
+function DetailPage({ home }) {
+  const [singleMovie, setSingleMovie] = useState({});
+  const [error, setError] = useState("")
   const navigate = useNavigate()
   const params = useParams()
   const handleHomeClick = () => {
     navigate("/")
     home()
   }
+
+  useEffect(() => {
+    fetchSingleMovie(ID);
+  }, []);
+
+console.log("ID", params.id)
+let ID = params.id
+const fetchSingleMovie = (ID) => {
+  getSingleMovie(ID)
+    .then((data) => {
+      setSingleMovie(data.movie);
+    })
+    .catch((error) => {
+      setError(error.message);
+    });
+};
+
   return (
     <section className="movie-detail-container" id={params.id}>
       <aside className='btn-container'>
