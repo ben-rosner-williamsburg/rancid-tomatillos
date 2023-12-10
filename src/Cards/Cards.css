@@ -33,7 +33,7 @@ img {
   font-size: 1em;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 768px) {
   .card {
     display: flex;
     flex-direction: column;
@@ -45,7 +45,7 @@ img {
 
   img {
     width: 60vw;
-    height: 35vh;
+    height: 55vh;
     margin: 0 auto;
   }
 
@@ -78,9 +78,9 @@ img {
    .card {
     display: flex;
     flex-direction: column;
-    height: 45vh;
+    height: 55vh;
     margin: 4vh;
-    width: 65vw;
+    width: 75vw;
     align-items: center;
   }
   img {
