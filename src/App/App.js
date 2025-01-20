@@ -8,10 +8,13 @@ import { useState, useEffect } from "react";
 import { getMovies, getSingleMovie } from "../apiCalls/apiCalls.js";
 import { Routes, Route } from "react-router-dom";
 
+import { useNavigate } from "react-router-dom";
+
 function App() {
   const [movies, setMovies] = useState([]);
   const [singleMovie, setSingleMovie] = useState({});
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // Initialize navigate function
 
   useEffect(() => {
     fetchData();
@@ -20,11 +23,9 @@ function App() {
   const fetchData = () => {
     getMovies()
       .then((data) => {
-        console.log("Fetched movies:", data); // Debugging log
-        setMovies(data|| []); // Ensure a fallback to an empty array
+        setMovies(data);
       })
       .catch((error) => {
-        console.error("Error fetching movies:", error); // Debug error
         setError(error.message);
       });
   };
@@ -32,7 +33,7 @@ function App() {
   const fetchSingleMovie = (id) => {
     getSingleMovie(id)
       .then((data) => {
-        setSingleMovie(data.movie);
+        setSingleMovie(data);
       })
       .catch((error) => {
         setError(error.message);
@@ -41,12 +42,11 @@ function App() {
 
   const handleMovieClick = (id) => {
     fetchSingleMovie(id);
-    findMovie(id);
+    navigate(`/movies/${id}/`); // Navigate to the movie detail page
   };
 
-  const findMovie = (id) => {
-    const movieSelected = movies.find((movie) => movie.id === id);
-    setSingleMovie(movieSelected);
+  const handleHomeClick = () => {
+    navigate("/"); // Navigate back to the home page
   };
 
   return (
@@ -54,7 +54,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Movies movieData={movies} handleClick={handleMovieClick} />} />
-        <Route path="movies/:id/" element={<DetailPage singleMovie={singleMovie} />} />
+        <Route path="movies/:id/" element={<DetailPage singleMovie={singleMovie} home={handleHomeClick} />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </main>
