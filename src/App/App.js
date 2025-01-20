@@ -1,18 +1,20 @@
+// Correct placement of imports
 import './App.css';
 import Movies from '../Movies/Movies.js';
 import Header from '../Header/Header.js';
 import DetailPage from '../DetailPage/DetailPage.js';
-import Error from "../Error/Error.js"
+import Error from "../Error/Error.js";
 import { useState, useEffect } from "react";
 import { getMovies, getSingleMovie } from "../apiCalls/apiCalls.js";
 import { Routes, Route } from "react-router-dom";
 
+import { useNavigate } from "react-router-dom";
 
 function App() {
-  const [movieClicked, setMovieClicked] = useState(false);
+  const [movies, setMovies] = useState([]);
   const [singleMovie, setSingleMovie] = useState({});
-  const [movieData, setMovieData] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate(); // Initialize navigate function
 
   useEffect(() => {
     fetchData();
@@ -21,43 +23,42 @@ function App() {
   const fetchData = () => {
     getMovies()
       .then((data) => {
-        setMovieData(data.movies)
+        setMovies(data);
       })
       .catch((error) => {
-        setError(error.message)
-      })
-  }
+        setError(error.message);
+      });
+  };
 
   const fetchSingleMovie = (id) => {
     getSingleMovie(id)
       .then((data) => {
-        setSingleMovie(data.movie)
+        setSingleMovie(data);
       })
       .catch((error) => {
-        setError(error.message)
-      })
-  }
+        setError(error.message);
+      });
+  };
 
-  const handleClick = (id) => {
+  const handleMovieClick = (id) => {
     fetchSingleMovie(id);
-    findMovie(id);
-    setMovieClicked(true);
-  }
-  const findMovie = (id) => {
-    const movieSelected = movieData.find(movie => movie.id === id);
-    setSingleMovie(movieSelected);
-  }
+    navigate(`/movies/${id}/`); // Navigate to the movie detail page
+  };
+
+  const handleHomeClick = () => {
+    navigate("/"); // Navigate back to the home page
+  };
+
   return (
     <main className="main-container">
       <Header />
       <Routes>
-        <Route path="/" element={<Movies movieData={movieData} handleClick={handleClick} error={error} />} />
-        <Route path="movies/:id/" element={<DetailPage singleMovie={singleMovie} />} />
-        <Route path='*' element={<Error />} />
+        <Route path="/" element={<Movies movieData={movies} handleClick={handleMovieClick} />} />
+        <Route path="movies/:id/" element={<DetailPage singleMovie={singleMovie} home={handleHomeClick} />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </main>
-  )
+  );
 }
-
 
 export default App;
