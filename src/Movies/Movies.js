@@ -3,40 +3,48 @@ import Card from "../Cards/Cards"
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Movies({ movieData, handleClick, error }) {
-  const movieCards = movieData.map(movie => {
-    return (
-      <Card
-        title={movie.title}
-        poster={movie.poster_path}
-        averageRating={Math.round(movie.average_rating)}
-        id={movie.id}
-        key={movie.id}
-        className="card-hover"
-        handleClick={handleClick}
-        releaseDate={movie.release_date}
-      />
-    )
-  })
+function Movies({ movieData = [], handleClick, error }) {
+  if (error) {
+    return <h1>Error: {error}</h1>; // Display an error message
+  }
+
+  if (!movieData || movieData.length === 0) {
+    return <h2>Loading movies...</h2>; // Fallback while loading data
+  }
+
+  const movieCards = movieData.map((movie) => (
+    <Card
+      key={movie.id}
+      title={movie.title}
+      poster={movie.poster_path}
+      averageRating={Math.round(movie.vote_count)}
+      id={movie.id}
+      className="card-hover"
+      handleClick={handleClick}
+    />
+  ));
+
   return (
     <section className="app-container">
-      {!error ? <div className='card-container'>{movieCards}</div> : <h1>500 Error! Try again later!</h1>}
+      <div className="card-container">{movieCards}</div>
     </section>
-  )
+  );
 }
 
-export default Movies;
 
 Movies.propTypes = {
   movieData: PropTypes.arrayOf(
     PropTypes.shape({
-      backdrop_path: PropTypes.string,
       title: PropTypes.string.isRequired,
       poster_path: PropTypes.string.isRequired,
-      average_rating: PropTypes.number.isRequired,
+      vote_count: PropTypes.number.isRequired,
       id: PropTypes.number.isRequired,
-      release_date: PropTypes.string.isRequired,
     })
   ).isRequired,
   handleClick: PropTypes.func.isRequired,
+  error: PropTypes.string,
 };
+
+
+
+export default Movies;
