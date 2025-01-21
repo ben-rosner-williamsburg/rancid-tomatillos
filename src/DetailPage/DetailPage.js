@@ -11,7 +11,6 @@ function DetailPage({ singleMovie, home }) {
     navigate("/");
     home();
   };
-  console.log("Single Movie Data:", singleMovie);
   return (
     <section className="movie-detail-container">
       <aside className="btn-container">
@@ -26,7 +25,7 @@ function DetailPage({ singleMovie, home }) {
       />
       <aside>
         <h3 className="movie-title movie-element">Title: {singleMovie.title || "Unknown Title"}</h3>
-        <p className="movie-rating movie-element">Popularity {singleMovie.popularity || "N/A"}</p>
+        <p className="movie-rating movie-element">Popularity: {singleMovie.popularity || "N/A"}</p>
         <p className="movie-date movie-element">Release Date: {singleMovie.release_date || "N/A"}</p>
       </aside>
     </section>
