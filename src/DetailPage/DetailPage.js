@@ -33,9 +33,9 @@ function DetailPage({ singleMovie, home, isFavorite, onToggleFavorite }) {
     });
   };
 
-  const formatPopularity = (pop) => {
-    if (!pop) return 'N/A';
-    return Math.round(pop).toLocaleString();
+  const formatRating = (rating) => {
+    if (!rating) return 'N/A';
+    return rating.toFixed(1);
   };
 
   const formatVoteCount = (votes) => {
@@ -98,10 +98,10 @@ function DetailPage({ singleMovie, home, isFavorite, onToggleFavorite }) {
                 </div>
                 
                 <div className="meta-item">
-                  <span className="meta-icon">🔥</span>
+                  <span className="meta-icon">⭐</span>
                   <div className="meta-content">
-                    <span className="meta-label">Popularity</span>
-                    <span className="meta-value">{formatPopularity(singleMovie.popularity)}</span>
+                    <span className="meta-label">Average Rating</span>
+                    <span className="meta-value">{formatRating(singleMovie.average_rating)}</span>
                   </div>
                 </div>
                 
@@ -113,12 +113,12 @@ function DetailPage({ singleMovie, home, isFavorite, onToggleFavorite }) {
                   </div>
                 </div>
                 
-                {singleMovie.vote_average && (
+                {singleMovie.popularity && (
                   <div className="meta-item">
-                    <span className="meta-icon">⭐</span>
+                    <span className="meta-icon">🔥</span>
                     <div className="meta-content">
-                      <span className="meta-label">Average Rating</span>
-                      <span className="meta-value">{singleMovie.vote_average.toFixed(1)}/10</span>
+                      <span className="meta-label">Popularity</span>
+                      <span className="meta-value">{Math.round(singleMovie.popularity)}</span>
                     </div>
                   </div>
                 )}
@@ -144,7 +144,7 @@ DetailPage.propTypes = {
     backdrop_path: PropTypes.string,
     title: PropTypes.string,
     vote_count: PropTypes.number,
-    vote_average: PropTypes.number,
+    average_rating: PropTypes.number,
     popularity: PropTypes.number,
     release_date: PropTypes.string,
     overview: PropTypes.string,

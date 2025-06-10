@@ -33,9 +33,9 @@ function App() {
     setLoading(true);
     getMovies()
       .then((data) => {
-        console.log('Full API Response:', data); // Debug log to check API structure
-        // The API might return data in a nested structure
-        const movieList = data.movies || data || [];
+        console.log('Full API Response:', data);
+        // Extract movies array from the response
+        const movieList = data.movies || [];
         console.log('Movie List:', movieList);
         console.log('First Movie Sample:', movieList[0]);
         setMovies(movieList);
@@ -53,8 +53,8 @@ function App() {
     setLoading(true);
     getSingleMovie(id)
       .then((data) => {
-        console.log('Single Movie API Response:', data); // Debug log
-        // The API might return data in a nested structure
+        console.log('Single Movie API Response:', data);
+        // Extract movie data from the response
         const movieData = data.movie || data || {};
         setSingleMovie(movieData);
         setError("");

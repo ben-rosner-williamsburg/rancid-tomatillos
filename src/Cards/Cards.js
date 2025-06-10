@@ -9,6 +9,7 @@ function Card({
   voteCount, 
   popularity, 
   releaseDate, 
+  averageRating,
   id, 
   handleClick, 
   isFavorite, 
@@ -35,11 +36,8 @@ function Card({
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';
     try {
-      // Handle different date formats
       const date = new Date(dateString);
-      // Check if date is valid
       if (isNaN(date.getTime())) {
-        // Try parsing just the year if it's a simple year format
         const yearMatch = dateString.match(/\d{4}/);
         if (yearMatch) {
           return yearMatch[0];
@@ -53,9 +51,9 @@ function Card({
     }
   };
 
-  const formatPopularity = (pop) => {
-    if (!pop || isNaN(pop)) return 'N/A';
-    return Math.round(pop);
+  const formatRating = (rating) => {
+    if (!rating || isNaN(rating)) return 'N/A';
+    return rating.toFixed(1);
   };
 
   const formatVoteCount = (votes) => {
@@ -64,7 +62,7 @@ function Card({
   };
 
   // Debug logging to check data
-  console.log('Card data:', { title, releaseDate, voteCount, popularity, id });
+  console.log('Card data:', { title, releaseDate, voteCount, popularity, averageRating, id });
 
   return (
     <Link className="card-link" to={`/movies/${id}/`}>
@@ -98,8 +96,8 @@ function Card({
                   {formatDate(releaseDate)}
                 </span>
                 <span className="stat">
-                  <span className="stat-icon">🔥</span>
-                  {formatPopularity(popularity)}
+                  <span className="stat-icon">⭐</span>
+                  {formatRating(averageRating)}
                 </span>
               </div>
             </div>
@@ -110,8 +108,8 @@ function Card({
           <h3 className="movie-title">{title}</h3>
           <div className="movie-stats">
             <div className="stat-item">
-              <span className="stat-label">Votes</span>
-              <span className="stat-value">{formatVoteCount(voteCount)}</span>
+              <span className="stat-label">Rating</span>
+              <span className="stat-value">{formatRating(averageRating)}</span>
             </div>
             <div className="stat-item">
               <span className="stat-label">Year</span>
@@ -130,6 +128,7 @@ Card.propTypes = {
   voteCount: PropTypes.number,
   popularity: PropTypes.number,
   releaseDate: PropTypes.string,
+  averageRating: PropTypes.number,
   id: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired,
   isFavorite: PropTypes.bool.isRequired,

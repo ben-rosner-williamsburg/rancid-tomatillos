@@ -31,7 +31,6 @@ function Movies({
   }
 
   const movieCards = movieData.map((movie) => {
-    // Debug log to see the actual movie object structure
     console.log('Individual Movie Object:', movie);
     
     return (
@@ -39,9 +38,11 @@ function Movies({
         key={movie.id}
         title={movie.title}
         poster={movie.poster_path}
+        // Map the correct field names from the API
         voteCount={movie.vote_count}
         popularity={movie.popularity}
         releaseDate={movie.release_date}
+        averageRating={movie.average_rating}
         id={movie.id}
         handleClick={handleClick}
         isFavorite={favorites.includes(movie.id)}
