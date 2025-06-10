@@ -33,6 +33,7 @@ function App() {
     setLoading(true);
     getMovies()
       .then((data) => {
+        console.log('API Response:', data); // Debug log to check API structure
         setMovies(data);
         setError("");
       })
@@ -48,6 +49,7 @@ function App() {
     setLoading(true);
     getSingleMovie(id)
       .then((data) => {
+        console.log('Single Movie API Response:', data); // Debug log
         setSingleMovie(data);
         setError("");
       })
@@ -61,19 +63,21 @@ function App() {
 
   const filterAndSortMovies = () => {
     let filtered = movies.filter(movie =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+      movie.title && movie.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     filtered.sort((a, b) => {
       switch (sortBy) {
         case "title":
-          return a.title.localeCompare(b.title);
+          return (a.title || '').localeCompare(b.title || '');
         case "release_date":
-          return new Date(b.release_date) - new Date(a.release_date);
+          const dateA = new Date(a.release_date || '1900-01-01');
+          const dateB = new Date(b.release_date || '1900-01-01');
+          return dateB - dateA;
         case "vote_count":
-          return b.vote_count - a.vote_count;
+          return (b.vote_count || 0) - (a.vote_count || 0);
         case "popularity":
-          return b.popularity - a.popularity;
+          return (b.popularity || 0) - (a.popularity || 0);
         default:
           return 0;
       }

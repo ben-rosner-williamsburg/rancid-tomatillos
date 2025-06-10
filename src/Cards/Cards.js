@@ -34,14 +34,29 @@ function Card({
 
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';
-    const date = new Date(dateString);
-    return date.getFullYear();
+    try {
+      const date = new Date(dateString);
+      // Check if date is valid
+      if (isNaN(date.getTime())) return 'N/A';
+      return date.getFullYear().toString();
+    } catch (error) {
+      console.warn('Invalid date format:', dateString);
+      return 'N/A';
+    }
   };
 
   const formatPopularity = (pop) => {
-    if (!pop) return 'N/A';
+    if (!pop || isNaN(pop)) return 'N/A';
     return Math.round(pop);
   };
+
+  const formatVoteCount = (votes) => {
+    if (!votes || isNaN(votes)) return '0';
+    return votes.toLocaleString();
+  };
+
+  // Debug logging to check data
+  console.log('Card data:', { title, releaseDate, voteCount, popularity });
 
   return (
     <Link className="card-link" to={`/movies/${id}/`}>
@@ -87,11 +102,11 @@ function Card({
           <h3 className="movie-title">{title}</h3>
           <div className="movie-stats">
             <div className="stat-item">
-              <span className="stat-label">Votes:</span>
-              <span className="stat-value">{voteCount || 0}</span>
+              <span className="stat-label">Votes</span>
+              <span className="stat-value">{formatVoteCount(voteCount)}</span>
             </div>
             <div className="stat-item">
-              <span className="stat-label">Year:</span>
+              <span className="stat-label">Year</span>
               <span className="stat-value">{formatDate(releaseDate)}</span>
             </div>
           </div>
