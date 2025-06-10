@@ -35,9 +35,17 @@ function Card({
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';
     try {
+      // Handle different date formats
       const date = new Date(dateString);
       // Check if date is valid
-      if (isNaN(date.getTime())) return 'N/A';
+      if (isNaN(date.getTime())) {
+        // Try parsing just the year if it's a simple year format
+        const yearMatch = dateString.match(/\d{4}/);
+        if (yearMatch) {
+          return yearMatch[0];
+        }
+        return 'N/A';
+      }
       return date.getFullYear().toString();
     } catch (error) {
       console.warn('Invalid date format:', dateString);
@@ -56,7 +64,7 @@ function Card({
   };
 
   // Debug logging to check data
-  console.log('Card data:', { title, releaseDate, voteCount, popularity });
+  console.log('Card data:', { title, releaseDate, voteCount, popularity, id });
 
   return (
     <Link className="card-link" to={`/movies/${id}/`}>

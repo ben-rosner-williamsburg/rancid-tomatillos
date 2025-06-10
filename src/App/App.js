@@ -34,7 +34,9 @@ function App() {
     getMovies()
       .then((data) => {
         console.log('API Response:', data); // Debug log to check API structure
-        setMovies(data);
+        // Handle both possible response structures
+        const movieArray = data.movies || data;
+        setMovies(movieArray);
         setError("");
       })
       .catch((error) => {
@@ -50,7 +52,9 @@ function App() {
     getSingleMovie(id)
       .then((data) => {
         console.log('Single Movie API Response:', data); // Debug log
-        setSingleMovie(data);
+        // Handle both possible response structures
+        const movieData = data.movie || data;
+        setSingleMovie(movieData);
         setError("");
       })
       .catch((error) => {
