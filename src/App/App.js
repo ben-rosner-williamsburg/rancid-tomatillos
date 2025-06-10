@@ -38,6 +38,12 @@ function App() {
         const movieList = Array.isArray(data) ? data : (data.movies || []);
         console.log('Movie List:', movieList);
         console.log('First Movie Sample:', movieList[0]);
+        
+        // Log the actual field names to debug
+        if (movieList.length > 0) {
+          console.log('Available fields:', Object.keys(movieList[0]));
+        }
+        
         setMovies(movieList);
         setError("");
       })
@@ -56,6 +62,8 @@ function App() {
         console.log('Single Movie API Response:', data);
         // Handle both direct movie object and wrapped response
         const movieData = Array.isArray(data) ? data[0] : (data.movie || data || {});
+        console.log('Single Movie Data:', movieData);
+        console.log('Single Movie Fields:', Object.keys(movieData));
         setSingleMovie(movieData);
         setError("");
       })
