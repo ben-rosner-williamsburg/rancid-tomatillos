@@ -135,12 +135,6 @@ function Card({
                 <span className="stat-value">{formatVoteCount(voteCount)}</span>
               </div>
             )}
-            {!formattedRating && !formattedDate && voteCount && (
-              <div className="stat-item">
-                <span className="stat-label">Vote Count</span>
-                <span className="stat-value">{formatVoteCount(voteCount)}</span>
-              </div>
-            )}
           </div>
         </div>
       </article>
