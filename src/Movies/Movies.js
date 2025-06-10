@@ -30,20 +30,25 @@ function Movies({
     );
   }
 
-  const movieCards = movieData.map((movie) => (
-    <Card
-      key={movie.id}
-      title={movie.title}
-      poster={movie.poster_path}
-      voteCount={movie.vote_count}
-      popularity={movie.popularity}
-      releaseDate={movie.release_date}
-      id={movie.id}
-      handleClick={handleClick}
-      isFavorite={favorites.includes(movie.id)}
-      onToggleFavorite={onToggleFavorite}
-    />
-  ));
+  const movieCards = movieData.map((movie) => {
+    // Debug log to see the actual movie object structure
+    console.log('Individual Movie Object:', movie);
+    
+    return (
+      <Card
+        key={movie.id}
+        title={movie.title}
+        poster={movie.poster_path}
+        voteCount={movie.vote_count}
+        popularity={movie.popularity}
+        releaseDate={movie.release_date}
+        id={movie.id}
+        handleClick={handleClick}
+        isFavorite={favorites.includes(movie.id)}
+        onToggleFavorite={onToggleFavorite}
+      />
+    );
+  });
 
   return (
     <section className="movies-container">
@@ -68,7 +73,7 @@ Movies.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       poster_path: PropTypes.string.isRequired,
-      vote_count: PropTypes.number.isRequired,
+      vote_count: PropTypes.number,
       id: PropTypes.number.isRequired,
     })
   ).isRequired,

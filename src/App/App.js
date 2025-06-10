@@ -34,7 +34,11 @@ function App() {
     getMovies()
       .then((data) => {
         console.log('Full API Response:', data); // Debug log to check API structure
-        setMovies(data);
+        // The API might return data in a nested structure
+        const movieList = data.movies || data || [];
+        console.log('Movie List:', movieList);
+        console.log('First Movie Sample:', movieList[0]);
+        setMovies(movieList);
         setError("");
       })
       .catch((error) => {
@@ -50,7 +54,9 @@ function App() {
     getSingleMovie(id)
       .then((data) => {
         console.log('Single Movie API Response:', data); // Debug log
-        setSingleMovie(data);
+        // The API might return data in a nested structure
+        const movieData = data.movie || data || {};
+        setSingleMovie(movieData);
         setError("");
       })
       .catch((error) => {
