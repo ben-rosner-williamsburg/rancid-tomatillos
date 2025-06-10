@@ -34,7 +34,7 @@ function Card({
   };
 
   const formatDate = (dateString) => {
-    if (!dateString) return 'N/A';
+    if (!dateString) return null;
     try {
       const date = new Date(dateString);
       if (isNaN(date.getTime())) {
@@ -42,17 +42,17 @@ function Card({
         if (yearMatch) {
           return yearMatch[0];
         }
-        return 'N/A';
+        return null;
       }
       return date.getFullYear().toString();
     } catch (error) {
       console.warn('Invalid date format:', dateString);
-      return 'N/A';
+      return null;
     }
   };
 
   const formatRating = (rating) => {
-    if (!rating || isNaN(rating)) return 'N/A';
+    if (!rating || isNaN(rating)) return null;
     return rating.toFixed(1);
   };
 
@@ -61,8 +61,8 @@ function Card({
     return votes.toLocaleString();
   };
 
-  // Debug logging to check data
-  console.log('Card data:', { title, releaseDate, voteCount, popularity, averageRating, id });
+  const formattedDate = formatDate(releaseDate);
+  const formattedRating = formatRating(averageRating);
 
   return (
     <Link className="card-link" to={`/movies/${id}/`}>
@@ -91,14 +91,24 @@ function Card({
             <div className="overlay-content">
               <h3 className="overlay-title">{title}</h3>
               <div className="overlay-stats">
-                <span className="stat">
-                  <span className="stat-icon">📅</span>
-                  {formatDate(releaseDate)}
-                </span>
-                <span className="stat">
-                  <span className="stat-icon">⭐</span>
-                  {formatRating(averageRating)}
-                </span>
+                {formattedDate && (
+                  <span className="stat">
+                    <span className="stat-icon">📅</span>
+                    {formattedDate}
+                  </span>
+                )}
+                {formattedRating && (
+                  <span className="stat">
+                    <span className="stat-icon">⭐</span>
+                    {formattedRating}
+                  </span>
+                )}
+                {voteCount && (
+                  <span className="stat">
+                    <span className="stat-icon">🗳️</span>
+                    {formatVoteCount(voteCount)}
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -107,14 +117,30 @@ function Card({
         <div className="card-content">
           <h3 className="movie-title">{title}</h3>
           <div className="movie-stats">
-            <div className="stat-item">
-              <span className="stat-label">Rating</span>
-              <span className="stat-value">{formatRating(averageRating)}</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-label">Year</span>
-              <span className="stat-value">{formatDate(releaseDate)}</span>
-            </div>
+            {formattedRating && (
+              <div className="stat-item">
+                <span className="stat-label">Rating</span>
+                <span className="stat-value">{formattedRating}</span>
+              </div>
+            )}
+            {formattedDate && (
+              <div className="stat-item">
+                <span className="stat-label">Year</span>
+                <span className="stat-value">{formattedDate}</span>
+              </div>
+            )}
+            {voteCount && (
+              <div className="stat-item">
+                <span className="stat-label">Votes</span>
+                <span className="stat-value">{formatVoteCount(voteCount)}</span>
+              </div>
+            )}
+            {!formattedRating && !formattedDate && voteCount && (
+              <div className="stat-item">
+                <span className="stat-label">Vote Count</span>
+                <span className="stat-value">{formatVoteCount(voteCount)}</span>
+              </div>
+            )}
           </div>
         </div>
       </article>

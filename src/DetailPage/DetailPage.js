@@ -24,7 +24,7 @@ function DetailPage({ singleMovie, home, isFavorite, onToggleFavorite }) {
   };
 
   const formatDate = (dateString) => {
-    if (!dateString) return 'N/A';
+    if (!dateString) return null;
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { 
       year: 'numeric', 
@@ -34,12 +34,12 @@ function DetailPage({ singleMovie, home, isFavorite, onToggleFavorite }) {
   };
 
   const formatRating = (rating) => {
-    if (!rating) return 'N/A';
+    if (!rating) return null;
     return rating.toFixed(1);
   };
 
   const formatVoteCount = (votes) => {
-    if (!votes) return 'N/A';
+    if (!votes) return null;
     return votes.toLocaleString();
   };
 
@@ -89,29 +89,35 @@ function DetailPage({ singleMovie, home, isFavorite, onToggleFavorite }) {
             
             <div className="movie-meta">
               <div className="meta-grid">
-                <div className="meta-item">
-                  <span className="meta-icon">📅</span>
-                  <div className="meta-content">
-                    <span className="meta-label">Release Date</span>
-                    <span className="meta-value">{formatDate(singleMovie.release_date)}</span>
+                {formatDate(singleMovie.release_date) && (
+                  <div className="meta-item">
+                    <span className="meta-icon">📅</span>
+                    <div className="meta-content">
+                      <span className="meta-label">Release Date</span>
+                      <span className="meta-value">{formatDate(singleMovie.release_date)}</span>
+                    </div>
                   </div>
-                </div>
+                )}
                 
-                <div className="meta-item">
-                  <span className="meta-icon">⭐</span>
-                  <div className="meta-content">
-                    <span className="meta-label">Average Rating</span>
-                    <span className="meta-value">{formatRating(singleMovie.average_rating)}</span>
+                {formatRating(singleMovie.average_rating) && (
+                  <div className="meta-item">
+                    <span className="meta-icon">⭐</span>
+                    <div className="meta-content">
+                      <span className="meta-label">Average Rating</span>
+                      <span className="meta-value">{formatRating(singleMovie.average_rating)}</span>
+                    </div>
                   </div>
-                </div>
+                )}
                 
-                <div className="meta-item">
-                  <span className="meta-icon">🗳️</span>
-                  <div className="meta-content">
-                    <span className="meta-label">Vote Count</span>
-                    <span className="meta-value">{formatVoteCount(singleMovie.vote_count)}</span>
+                {formatVoteCount(singleMovie.vote_count) && (
+                  <div className="meta-item">
+                    <span className="meta-icon">🗳️</span>
+                    <div className="meta-content">
+                      <span className="meta-label">Vote Count</span>
+                      <span className="meta-value">{formatVoteCount(singleMovie.vote_count)}</span>
+                    </div>
                   </div>
-                </div>
+                )}
                 
                 {singleMovie.popularity && (
                   <div className="meta-item">
