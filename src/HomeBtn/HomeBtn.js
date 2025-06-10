@@ -1,15 +1,15 @@
 import './HomeBtn.css'
 import { Link } from 'react-router-dom'
 
-function HomeBtn() {
+function HomeBtn({ handleHomeClick }) {
   return (
-    <div className='btn-container'>
-      <Link to="/">
-        <span className="material-symbols-outlined home-btn">home</span><p className='home-text'>Home</p>
-      </Link>
-    </div>
+    <Link to="/" onClick={handleHomeClick} className="home-btn-link">
+      <button className="modern-home-btn">
+        <span className="home-icon">🏠</span>
+        <span className="home-text">Home</span>
+      </button>
+    </Link>
   )
 }
 
 export default HomeBtn;
-

@@ -1,64 +1,71 @@
-.btn-container {
+.home-btn-link {
+  text-decoration: none;
+}
+
+.modern-home-btn {
   display: flex;
-  align-items: flex-start;
-  width: 10vw;
-  height: 5vh;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: white;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.home-btn,
+.modern-home-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.modern-home-btn:active {
+  transform: translateY(0);
+}
+
+.home-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.modern-home-btn:hover .home-icon {
+  transform: scale(1.1);
+}
+
 .home-text {
-  background-color: aliceblue;
-  text-align: center;
-  margin: 6.5vh 0 0 -4vw;
-  font-size: 40px;
-  border: none;
-  color: black;
-}
-
-.material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 1000
+  font-family: inherit;
+  letter-spacing: 0.5px;
 }
 
 @media only screen and (max-width: 768px) {
-  .btn-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .modern-home-btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
   }
-  .home-btn, .home-text {
-    text-align: center;
-    font-size: 6.5vw;
-    margin-top: -5vh;
+  
+  .home-icon {
+    font-size: 1.1rem;
   }
 }
 
-@media only screen and (max-width: 992px) {
-    .btn-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 20vw;
-    }
-    .home-btn, .home-text {
-      font-size: 4vw;
-      margin-bottom: -10vh;
-    }
-}
-
-
-@media only screen and (max-width: 1200px) {
-  .btn-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20vw;
+@media only screen and (max-width: 480px) {
+  .modern-home-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
   }
-  .home-btn, .home-text {
-    font-size: 4vw;
-    margin-bottom: -15vh;
+  
+  .home-text {
+    display: none;
+  }
+  
+  .home-icon {
+    font-size: 1.3rem;
   }
 }

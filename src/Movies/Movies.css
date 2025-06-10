@@ -1,57 +1,91 @@
-.app-container {
-  display: flex;
-  justify-items: center;
-  margin: -10vh auto;
+.movies-container {
+  width: 100%;
+  min-height: 100vh;
 }
 
+.no-movies-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.no-movies-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.no-movies-title {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.no-movies-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.results-info {
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.results-count {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 5vw;
-  grid-gap: 2vh;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
   justify-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-
-
-@media only screen and (max-width: 48em) {
-  .app-container {
-    flex-direction: column;
-  }
+@media only screen and (max-width: 768px) {
   .card-container {
-    display: flex;
-    flex-direction: column;
-    margin: 5vh auto;
-    align-items: center;
-    width: 80vw;
-    height: 100%;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .no-movies-content {
+    padding: 2rem;
+  }
+  
+  .no-movies-title {
+    font-size: 2rem;
+  }
+  
+  .no-movies-text {
+    font-size: 1rem;
   }
 }
 
 @media only screen and (max-width: 992px) {
-  .app-container {
-    display: flex;
-    flex-direction: column;
-  }
   .card-container {
-    display: flex;
-    flex-direction: column;
-    margin: 5vh auto;
-    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
 
-
 @media only screen and (max-width: 1200px) {
-  .app-container {
-    display: flex;
-    flex-direction: column;
-  }
   .card-container {
-    display: flex;
-    flex-direction: column;
-    margin: 5vh auto;
-    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
   }
 }

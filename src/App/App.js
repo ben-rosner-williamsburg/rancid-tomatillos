@@ -1,60 +1,166 @@
-// Correct placement of imports
 import './App.css';
 import Movies from '../Movies/Movies.js';
 import Header from '../Header/Header.js';
 import DetailPage from '../DetailPage/DetailPage.js';
 import Error from "../Error/Error.js";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.js";
 import { useState, useEffect } from "react";
 import { getMovies, getSingleMovie } from "../apiCalls/apiCalls.js";
 import { Routes, Route } from "react-router-dom";
-
 import { useNavigate } from "react-router-dom";
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
   const [singleMovie, setSingleMovie] = useState({});
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // Initialize navigate function
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("title");
+  const [favorites, setFavorites] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
+    loadFavorites();
   }, []);
 
+  useEffect(() => {
+    filterAndSortMovies();
+  }, [movies, searchTerm, sortBy]);
+
   const fetchData = () => {
+    setLoading(true);
     getMovies()
       .then((data) => {
         setMovies(data);
+        setError("");
       })
       .catch((error) => {
         setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   const fetchSingleMovie = (id) => {
+    setLoading(true);
     getSingleMovie(id)
       .then((data) => {
         setSingleMovie(data);
+        setError("");
       })
       .catch((error) => {
         setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
+  };
+
+  const filterAndSortMovies = () => {
+    let filtered = movies.filter(movie =>
+      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    filtered.sort((a, b) => {
+      switch (sortBy) {
+        case "title":
+          return a.title.localeCompare(b.title);
+        case "release_date":
+          return new Date(b.release_date) - new Date(a.release_date);
+        case "vote_count":
+          return b.vote_count - a.vote_count;
+        case "popularity":
+          return b.popularity - a.popularity;
+        default:
+          return 0;
+      }
+    });
+
+    setFilteredMovies(filtered);
   };
 
   const handleMovieClick = (id) => {
     fetchSingleMovie(id);
-    navigate(`/movies/${id}/`); // Navigate to the movie detail page
+    navigate(`/movies/${id}/`);
   };
 
   const handleHomeClick = () => {
-    navigate("/"); // Navigate back to the home page
+    navigate("/");
+    setError("");
   };
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  const handleSort = (sortOption) => {
+    setSortBy(sortOption);
+  };
+
+  const toggleFavorite = (movieId) => {
+    const updatedFavorites = favorites.includes(movieId)
+      ? favorites.filter(id => id !== movieId)
+      : [...favorites, movieId];
+    
+    setFavorites(updatedFavorites);
+    localStorage.setItem('movieFavorites', JSON.stringify(updatedFavorites));
+  };
+
+  const loadFavorites = () => {
+    const savedFavorites = localStorage.getItem('movieFavorites');
+    if (savedFavorites) {
+      setFavorites(JSON.parse(savedFavorites));
+    }
+  };
+
+  if (error && error !== "404") {
+    return (
+      <main className="main-container">
+        <Header />
+        <div className="error-state">
+          <h1 className="server-error">500 Error! Try again later!</h1>
+          <button className="retry-btn" onClick={fetchData}>
+            Retry
+          </button>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="main-container">
       <Header />
+      {loading && <LoadingSpinner />}
       <Routes>
-        <Route path="/" element={<Movies movieData={movies} handleClick={handleMovieClick} />} />
-        <Route path="movies/:id/" element={<DetailPage singleMovie={singleMovie} home={handleHomeClick} />} />
+        <Route 
+          path="/" 
+          element={
+            <Movies 
+              movieData={filteredMovies} 
+              handleClick={handleMovieClick}
+              onSearch={handleSearch}
+              onSort={handleSort}
+              searchTerm={searchTerm}
+              sortBy={sortBy}
+              favorites={favorites}
+              onToggleFavorite={toggleFavorite}
+            />
+          } 
+        />
+        <Route 
+          path="movies/:id/" 
+          element={
+            <DetailPage 
+              singleMovie={singleMovie} 
+              home={handleHomeClick}
+              isFavorite={favorites.includes(singleMovie.id)}
+              onToggleFavorite={() => toggleFavorite(singleMovie.id)}
+            />
+          } 
+        />
         <Route path="*" element={<Error />} />
       </Routes>
     </main>

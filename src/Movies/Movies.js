@@ -1,15 +1,33 @@
 import './Movies.css'
 import Card from "../Cards/Cards"
+import SearchAndFilter from "../SearchAndFilter/SearchAndFilter"
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Movies({ movieData = [], handleClick, error }) {
-  if (error) {
-    return <h1>Error: {error}</h1>; // Display an error message
-  }
-
+function Movies({ 
+  movieData = [], 
+  handleClick, 
+  onSearch, 
+  onSort, 
+  searchTerm, 
+  sortBy,
+  favorites,
+  onToggleFavorite 
+}) {
   if (!movieData || movieData.length === 0) {
-    return <h2>Loading movies...</h2>; // Fallback while loading data
+    return (
+      <div className="no-movies-container">
+        <div className="no-movies-content">
+          <h2 className="no-movies-title">🎬 No movies found</h2>
+          <p className="no-movies-text">
+            {searchTerm ? 
+              `No movies match "${searchTerm}". Try a different search term.` : 
+              "Loading movies..."
+            }
+          </p>
+        </div>
+      </div>
+    );
   }
 
   const movieCards = movieData.map((movie) => (
@@ -18,19 +36,32 @@ function Movies({ movieData = [], handleClick, error }) {
       title={movie.title}
       poster={movie.poster_path}
       voteCount={movie.vote_count}
+      popularity={movie.popularity}
+      releaseDate={movie.release_date}
       id={movie.id}
-      className="card-hover"
       handleClick={handleClick}
+      isFavorite={favorites.includes(movie.id)}
+      onToggleFavorite={onToggleFavorite}
     />
   ));
 
   return (
-    <section className="app-container">
+    <section className="movies-container">
+      <SearchAndFilter 
+        onSearch={onSearch}
+        onSort={onSort}
+        searchTerm={searchTerm}
+        sortBy={sortBy}
+      />
+      <div className="results-info">
+        <p className="results-count">
+          {movieData.length} movie{movieData.length !== 1 ? 's' : ''} found
+        </p>
+      </div>
       <div className="card-container">{movieCards}</div>
     </section>
   );
 }
-
 
 Movies.propTypes = {
   movieData: PropTypes.arrayOf(
@@ -42,9 +73,12 @@ Movies.propTypes = {
     })
   ).isRequired,
   handleClick: PropTypes.func.isRequired,
-  error: PropTypes.string,
+  onSearch: PropTypes.func.isRequired,
+  onSort: PropTypes.func.isRequired,
+  searchTerm: PropTypes.string.isRequired,
+  sortBy: PropTypes.string.isRequired,
+  favorites: PropTypes.array.isRequired,
+  onToggleFavorite: PropTypes.func.isRequired,
 };
-
-
 
 export default Movies;
