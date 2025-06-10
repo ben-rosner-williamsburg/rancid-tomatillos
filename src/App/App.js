@@ -34,8 +34,8 @@ function App() {
     getMovies()
       .then((data) => {
         console.log('Full API Response:', data);
-        // Extract movies array from the response
-        const movieList = data.movies || [];
+        // The API returns the movies array directly
+        const movieList = Array.isArray(data) ? data : (data.movies || []);
         console.log('Movie List:', movieList);
         console.log('First Movie Sample:', movieList[0]);
         setMovies(movieList);
@@ -54,8 +54,8 @@ function App() {
     getSingleMovie(id)
       .then((data) => {
         console.log('Single Movie API Response:', data);
-        // Extract movie data from the response
-        const movieData = data.movie || data || {};
+        // Handle both direct movie object and wrapped response
+        const movieData = Array.isArray(data) ? data[0] : (data.movie || data || {});
         setSingleMovie(movieData);
         setError("");
       })
