@@ -1,36 +1,48 @@
 {
-  "movies": [
+  "results": [
     {
       "id": 436270,
-      "poster_path": "https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
-      "backdrop_path": "https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/w500/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
       "title": "Black Adam",
-      "average_rating": 4,
-      "release_date": "2022-10-19"
+      "vote_average": 7.2,
+      "vote_count": 4250,
+      "popularity": 2847.433,
+      "release_date": "2022-10-19",
+      "overview": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world."
     },
     {
       "id": 724495,
-      "poster_path": "https://image.tmdb.org/t/p/original//438QXt1E3WJWb3PqNniK0tAE5c1.jpg",
-      "backdrop_path": "https://image.tmdb.org/t/p/original//7zQJYV02yehWrQN6NjKsBorqUUS.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/w500/438QXt1E3WJWb3PqNniK0tAE5c1.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/7zQJYV02yehWrQN6NjKsBorqUUS.jpg",
       "title": "The Woman King",
-      "average_rating": 4,
-      "release_date": "2022-09-15"
+      "vote_average": 7.9,
+      "vote_count": 2180,
+      "popularity": 1654.321,
+      "release_date": "2022-09-15",
+      "overview": "The story of the Agojie, the all-female unit of warriors who protected the African Kingdom of Dahomey in the 1800s with skills and a fierceness unlike anything the world has ever seen."
     },
     {
       "id": 1013860,
-      "poster_path": "https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg",
-      "backdrop_path": "https://image.tmdb.org/t/p/original//kmzppWh7ljL6K9fXW72bPN3gKwu.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/w500/g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/kmzppWh7ljL6K9fXW72bPN3gKwu.jpg",
       "title": "R.I.P.D. 2: Rise of the Damned",
-      "average_rating": 7,
-      "release_date": "2022-11-15"
+      "vote_average": 6.3,
+      "vote_count": 890,
+      "popularity": 987.654,
+      "release_date": "2022-11-15",
+      "overview": "When Sheriff Roy Pulsipher finds himself in the afterlife, he joins a special police force and returns to Earth to save humanity from the undead."
     },
     {
       "id": 760104,
-      "poster_path": "https://image.tmdb.org/t/p/original//woTQx9Q4b8aO13jR9dsj8C9JESy.jpg",
-      "backdrop_path": "https://image.tmdb.org/t/p/original//70Rm9ItxKuEKN8iu6rNjfwAYUCJ.jpg",
+      "poster_path": "https://image.tmdb.org/t/p/w500/woTQx9Q4b8aO13jR9dsj8C9JESy.jpg",
+      "backdrop_path": "https://image.tmdb.org/t/p/w500/70Rm9ItxKuEKN8iu6rNjfwAYUCJ.jpg",
       "title": "X",
-      "average_rating": 1,
-      "release_date": "2022-03-17"
-      }
+      "vote_average": 6.7,
+      "vote_count": 1456,
+      "popularity": 543.210,
+      "release_date": "2022-03-17",
+      "overview": "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives."
+    }
   ]
 }
