@@ -1,5 +1,5 @@
 // TMDb API configuration
-const API_KEY = 'demo_key'; // Replace with your actual TMDb API key
+const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
@@ -13,7 +13,6 @@ export const getMovies = () => {
       }
     })
     .then((data) => {
-      // Transform TMDb data to match your existing component structure
       return data.results.map(movie => ({
         id: movie.id,
         title: movie.title,
@@ -39,7 +38,6 @@ export const getSingleMovie = (id) => {
       }
     })
     .then((movie) => {
-      // Transform single movie data to match your existing component structure
       return {
         id: movie.id,
         title: movie.title,
